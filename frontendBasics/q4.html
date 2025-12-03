@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="input">Input : </label>
+    <input type="text" id="input">
+    <br><br>
+    <button id="btn">Save</button>
+    <p id="output"></p>
+    
+    <script>
+        const input = document.querySelector('#input');
+        const btn = document.querySelector('#btn');
+        const output = document.querySelector('#output');
+        btn.addEventListener("click", ()=>{
+
+            let inputValue = input.value;
+
+            localStorage.setItem("input",inputValue);
+            console.log("Saved to Local Storage : ",{
+                input : localStorage.getItem("input")
+            });
+
+            output.innerHTML = " <hr> Saved Input : " + inputValue;
+        });
+    </script>
+</body>
+</html>
